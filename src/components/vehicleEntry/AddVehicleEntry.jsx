@@ -1,29 +1,24 @@
-import React from 'react';
-import '../vehicleEntry/Addentry.css'
-import { useState } from 'react';
+import addSelectToll from "../../Features/AddVelEntrySlice";
+import "../vehicleEntry/Addentry.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const AddVehicleEntry = () => {
+  let vehicleList = useSelector((state) => state.addVelEnt); // Fixed the selector to use the correct slice name
+  let dispatch = useDispatch();
 
-      const [selectToll, setSelectToll] = useState('');
-      const [vehicleType, setVehicleType] = useState('');
-      const [vehicleNumber, setVehicleNumber] = useState('');
-      const [journeyType, setJourneyType] = useState(
-        {
-          singleJourney : "",
-          returnJourney : ""
+  const onSelectToll = (e) => {
+    const selectedToll = e.target.value;
+    dispatch(addSelectToll(selectedToll));
+  };
 
-        }
-      );
-      console.log(selectToll)
-
+  console.log(vehicleList);
 
   return (
-    <form action="" className='form-container'>
+    <form action="" className="form-container">
       <div className="form">
-
-        <div className='TollName'>
+        <div className="TollName">
           <h3>Select the toll Name</h3>
-          <select name="" id="" onChange={(e)=> setSelectToll(e.target.value)}>
+          <select name="" id="" onChange={onSelectToll}>
             <option value="Select the toll Name">Select the toll Name</option>
             <option value="Latur">Latur</option>
             <option value="pune">pune</option>
@@ -33,7 +28,7 @@ const AddVehicleEntry = () => {
         <div className="Vtype">
           <label htmlFor="">Vehicle type</label>
           <span>
-            <select name="" id="" onChange={(e)=> setVehicleType(e.target.value)}>
+            <select name="" id="">
               <option value="Select Vehical Type">Select Vehical Type</option>
               <option value="Car/Jeep/Van">Car/Jeep/Van</option>
               <option value="LCV">LCV</option>
@@ -41,14 +36,12 @@ const AddVehicleEntry = () => {
               <option value="Heavy vehicle">Heavy vehicle</option>
             </select>
           </span>
-
         </div>
 
         <div className="Vnumber">
-          <label htmlFor="" >Vehicle Number</label>
+          <label htmlFor="">Vehicle Number</label>
           <span>
-            <input type="text" placeholder='Vehicle Number' onChange={(e)=> setVehicleNumber(e.target.value)}/>
-
+            <input type="text" placeholder="Vehicle Number" />
           </span>
         </div>
 
@@ -56,34 +49,27 @@ const AddVehicleEntry = () => {
           <label htmlFor="">Journey Type</label>
           <span>
             <span>
-              <input type="radio" onChange={(e)=> setJourneyType({...journeyType,singleJourney : e.target.value})} />
+              <input type="radio" />
               <label htmlFor="">single journey</label>
-
             </span>
             <span>
-              <input type="radio" onChange={(e)=> setJourneyType({...journeyType,returnJourney : e.target.value})} />
+              <input type="radio" />
               <label htmlFor="">return journey</label>
-
             </span>
-
           </span>
         </div>
 
         <div className="tollName">
           <h2 className="trf">TARIFF</h2>
-          <span className='tariff'>
+          <span className="tariff">
             <span></span>
-            
-
           </span>
         </div>
 
         <button>ADD</button>
-
       </div>
     </form>
-
   );
-}
+};
 
 export default AddVehicleEntry;

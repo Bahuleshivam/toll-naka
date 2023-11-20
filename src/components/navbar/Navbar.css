@@ -7,13 +7,14 @@
     align-items: center;
 }
 
-.heading {
+/* .heading {
     margin-left: 24px;
     font-size: 27px;
     color: white;
-}
+    text-decoration: none;
+} */
 
-.btns{
+.btns {
     margin-right: 40px;
     display: flex;
     justify-content: space-between;

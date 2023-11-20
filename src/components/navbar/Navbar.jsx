@@ -1,19 +1,26 @@
-import React from 'react';
-import '../navbar/Navbar.css';
-import { Link } from 'react-router-dom';
+import "../navbar/Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className='navbar'>
-      <h2 className='heading'>Toll Management Application</h2>
+    <nav className="navbar">
+      <Link className="ml-24 text-white text-2xl no-underline" to="/">
+        Toll Management Application
+      </Link>
 
       <div className="btns">
-        <Link className='primary-btn' to='/AddVehicleEntry'>Add Vehicle Entry</Link>
-        <Link className='primary-btn' to='/Newtoll'>Add New Toll</Link>
-        <Link className='primary-btn' to='/List'>See Tolls List</Link>
+        <Link className="primary-btn" to="/AddVehicleEntry">
+          Add Vehicle Entry
+        </Link>
+        <Link className="primary-btn" to="/Newtoll">
+          Add New Toll
+        </Link>
+        <Link className="primary-btn" to="/List">
+          See Tolls List
+        </Link>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
